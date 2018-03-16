@@ -1,1 +1,259 @@
-<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <title>Document</title></head><body>123    <a href="s1.html">s1</a></body></html><script>console.log(this, 1)</script>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>脸影</title>
+</head>
+
+<body>
+    <div class="bodys">
+        <div class="logo">
+            <img src="img/logo.png" alt="">
+            <div class="login">
+                <a href="login.html">登录</a>
+                <span style="font-size:10px">/</span>
+                <a href="registered.html">注册</a>
+
+            </div>
+        </div>
+        <div class="banner">
+            <ul>
+                <li style='color:#007AFF'>首页</li>
+                <li>
+                    <a href='./map.html'>脸影网页版</a>
+                </li>
+                <li>
+                    <a href='#about'>关于我们</a>
+                </li>
+                <li>
+                    <a href='#footer'>下载</a>
+                </li>
+            </ul>
+        </div>
+        <div class="index">
+            <img src="img/index.png" alt="">
+        </div>
+        <div class="about">
+            <div class="tag" id='about'>
+                <span>关于脸影</span>
+                <div class="under1"></div>
+                <div class="under2"></div>
+            </div>
+            <div class="tab">
+                <div class="tab1 hover" id='tab1'></div>
+                <div class="tab2" id='tab2'></div>
+            </div>
+            <div class="php">
+                <img src="img/about1.jpg" alt="" width="750px" id='target1'>
+                <img class='none' src="img/about2.png" alt="" width="750px" id='target2'>
+            </div>
+        </div>
+        <div class="footer" id='footer'>
+            <img src="img/footer.png">
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+    tab1.onclick = function () {
+        console.log(1)
+        tab1.className = "tab1 hover"
+        tab2.className = "tab2"
+        target1.className = 'block'
+        target2.className = 'none'
+    }
+    tab2.onclick = function () {
+        console.log(1)
+        tab2.className = "tab2 hover"
+        tab1.className = "tab1"
+        target2.className = 'block'
+        target1.className = 'none'
+    }
+    anchorLink1 = document.querySelector("a[href='#about']")
+    target11 = document.getElementById("about");
+    anchorLink1.addEventListener("click", function (e) {
+        if (window.scrollTo) {
+            e.preventDefault();
+            console.log(target11.offsetTop)
+            window.scrollTo({ "behavior": "smooth", "top": target11.offsetTop });
+        }
+    })
+    anchorLink2 = document.querySelector("a[href='#footer']")
+    target22 = document.getElementById("footer");
+    anchorLink2.addEventListener("click", function (e) {
+        if (window.scrollTo) {
+            e.preventDefault();
+            console.log(target22.offsetTop)
+            window.scrollTo({ "behavior": "smooth", "top": target22.offsetTop });
+        }
+    })
+</script>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+
+
+
+    .logo a:hover {
+        text-decoration: underline;
+    }
+
+    .logo a {
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007AFF;
+    }
+
+    .footer {
+
+        margin: 0 auto;
+        margin-top: 60px;
+    }
+
+    .footer img {
+        width: 100%;
+        max-width: 1500px;
+    }
+
+    .none {
+        /* display: none; */
+        opacity: 0;
+    }
+
+    .bodys {
+        width: 760px;
+        margin: 0 auto;
+        font-family: MicrosoftYaHeiLight;
+        font-weight: 300;
+    }
+
+    .logo {
+        height: 50px;
+        padding: 20px 0;
+    }
+
+    .logo img {
+        height: 50px;
+        float: left;
+    }
+
+    .logo .login {
+        float: right;
+        line-height: 50px;
+        color: #007AFF;
+        font-weight: 100;
+    }
+
+    .banner ul {
+        float: right;
+        padding-bottom: 20px;
+    }
+
+    .banner li {
+        list-style: none;
+        float: left;
+        /*width: 150px;*/
+        /*text-align: center;*/
+        padding-left: 90px;
+    }
+
+    .banner li:last-child {
+        /*padding: 0;*/
+    }
+
+
+    .index img {
+        width: 760px;
+    }
+
+    .about .tag {
+        width: 100px;
+        margin: 50px auto;
+    }
+
+    .about .tag span {
+        font-size: 24px;
+        color: #000;
+    }
+
+    .about .tag .under1 {
+        width: 130px;
+        height: 2px;
+        background: #007AFF;
+        margin-left: -20px;
+        margin-top: 5px;
+    }
+
+    .about .tag .under2 {
+        width: 25px;
+        height: 5px;
+        background: #007AFF;
+        margin-left: 35px;
+        margin-top: 9px;
+    }
+
+    .about .tab {
+        height: 100px;
+    }
+
+
+
+    .about .tab div {
+        background-size: 100%;
+        width: 100px;
+        height: 100px;
+        transition: background 300ms;
+        float: left;
+        margin-right: 50px;
+        box-sizing: border-box;
+        border: 1px solid white;
+    }
+
+    .about .tab div:hover {
+        border: 1px solid black;
+        border-radius: 50%;
+        transition: border 330ms;
+    }
+
+    .about .tab .tab1 {
+        background-image: url('img/Position.png');
+    }
+
+    .about .tab .tab1.hover {
+        background-image: url('img/Positionselected.png');
+    }
+
+    .about .tab .tab2 {
+        background-image: url('img/Nearthehall.png');
+    }
+
+    .about .tab .tab2.hover {
+        background-image: url('img/Nearthehallselected.png');
+    }
+
+    .about .php {
+        margin-top: 40px;
+        position: relative;
+        height: 350px;
+        transition: opacity 300ms;
+    }
+
+    .php img {
+        transition: opacity 300ms;
+        position: absolute;
+        top: 0
+    }
+
+    .php img:last-child {
+        top: -1px;
+        left: -1px;
+    }
+</style>
